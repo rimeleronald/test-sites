@@ -1,0 +1,517 @@
+@font-face {
+  font-family: Metro;
+  src: url(Metropolis1920-Regular.ttf);
+}
+
+@font-face {
+  font-family: Vision;
+  src: url(Vision-Regular.ttf);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	min-height: 100vh;
+	background: #000;
+	display: flex;
+	overflow-x: hidden;
+	// animation: scroll 6s step-end forwards;
+}
+
+.glitch {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+}
+
+h1 {
+	font-family: Metro;
+	font-size: 7vw;
+	letter-spacing: 1vw;
+	text-transform: uppercase;
+	font-weight: 400;
+	margin: auto;
+	text-align: center;
+	// animation: glitch 4s step-end forwards 1s;
+}
+
+main {
+	min-height: 100vh;
+	width: 100vw;
+	background: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	clip-path: circle(0% at 50% 50%);
+	animation: main 2s linear forwards 1s;
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+	background: #000;
+	overflow: hidden;
+	clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0% 0%);
+}
+
+section:nth-child(even) {
+	
+}
+
+
+aside {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 30vw;
+	padding: 25vh 0;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+}
+
+aside a {
+	font-family: Metro;
+	font-size: 3vw;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	font-weight: 400;
+	letter-spacing: 0.5vw;
+	margin: auto auto auto 5vw;
+	text-align: center;
+	position: relative;
+	transition: 0.5s;
+}
+
+aside a:first-child {
+	margin: 0 auto auto 5vw;
+}
+
+aside a:last-child {
+	margin: auto auto 0 5vw;
+}
+
+aside a:before {
+	content: '';
+	width: 2vw;
+	height: 0.3vh;
+	position: absolute;
+	top: calc(50% - 0.15vh);
+	left: -3vw;
+	background: #fff;
+	transition: 0.5s;
+}
+
+aside a:hover {
+	text-shadow: -0.5vh 0 0 #f00, 0.5vh 0 0 #0ff;
+	filter: url('#noise-s');
+}
+
+aside a:hover:before {
+	box-shadow: -0.5vh 0 0 #f00, 0.5vh 0 0 #0ff;
+}
+
+aside a:active {
+	text-shadow: -0.5vh 0 0 #f00, 0.5vh 0 0 #0ff;
+}
+
+section:nth-child(even) aside a {
+	
+}
+
+section:nth-child(even) aside a:before {
+	
+}
+
+section:nth-child(even) article .absolute {
+	background: #000;
+}
+
+section:nth-child(even) article h2, section:nth-child(even) article h3 {
+	position: absolute;
+	left: 0;
+	z-index: 3;
+}
+
+section:nth-child(even) article:before {
+	content: '';
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	right: 20%;
+	bottom: 20%;
+	z-index: 2;
+	background: rgba(50, 50, 50, 0.2);
+	filter: blur(5px;);
+}
+
+section:nth-child(even) article .absolute h2, section:nth-child(even) article .absolute h3 {
+	color: #fff;
+} 
+
+section:nth-child(2) .absolute {
+	clip-path: circle(15.9% at 75% 25%);
+	transition: 2s;
+}
+
+section:nth-child(2):hover .absolute {
+	animation: clip-2 15s linear infinite;
+}
+
+article {
+	width: 70vw;
+	position: relative;
+	top: 0;
+	left: 30vw;
+	height: 100vh;
+}
+
+article h2, article h3 {
+	color: #fff;
+	font-family: Vision;
+	position: fixed;
+	margin: 0;
+	z-index: 5;
+}
+
+article h2 {
+	top: 25vh;
+	font-size: 5vw;
+	left: 30vw;
+}
+
+article h3 {
+	bottom: 25vh;
+	font-size: 3vw;
+	left: 30vw;
+}
+
+.absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #fff;
+	clip-path: polygon(30% 0, 30% 100%, 30% 100%, 0 100%, 0 35%, 30% 100%, 30% 0, 100% 0, 50% 0, 75% 40%, 100% 20%, 100% 0);
+	transition: 2s;
+}
+
+section:hover .absolute {
+	clip-path: polygon(40% 0, 40% 100%, 40% 100%, 0 100%, 0 60%, 40% 100%, 40% 0, 100% 0, 30% 0, 75% 70%, 100% 40%, 100% 0);
+}
+
+.absolute h2, .absolute h3 {
+	color: #000;
+	/*filter: url('#noise-s');
+	text-shadow: -0.3vw 0 0 #f00, 0.3vw 0 0 #0ff;*/
+}
+
+.circle-blue {
+	position: fixed;
+    height: 90vh;
+    width: 90vh;
+    top: -10vh;
+    right: -20vh;
+    background: radial-gradient(circle at left 30%, #9ff, #0ff);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 1.3vw #0ff9);
+}
+
+.circle-red {
+	position: fixed;
+    height: 60vh;
+    width: 60vh;
+    left: 30vw;
+    bottom: -10vh;
+    background: radial-gradient(circle at right 20% top 20%, #f99, #f00);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 1.3vw #f009);
+}
+
+.square-blue {
+	position: fixed;
+    height: 90vh;
+    width: 90vh;
+    top: -10vh;
+    right: -20vh;
+    background: radial-gradient(circle at left 30%, #9ff, #0ff);
+    filter: drop-shadow(0 0 1.3vw #0ff9);
+}
+
+.square-red {
+	position: fixed;
+    height: 60vh;
+    width: 60vh;
+    left: 30vw;
+    bottom: -10vh;
+    background: radial-gradient(circle at right top, #f99, #f00);
+    filter: drop-shadow(0 0 1.3vw #f009);
+}
+
+@keyframes clip-1 {
+	0% {
+		/*clip-path: polygon(38% 75%, 51% 11%, 96% 22%, 92% 36%, 68% 3%, 85% 86%, 55% 50%, 98% 59%, 35% 20%, 0 56%, 17% 18%);*/
+		clip-path: polygon(30% 0, 30% 100%, 30% 100%, 0 100%, 0 35%, 30% 100%, 30% 0, 100% 0, 50% 0, 75% 40%, 100% 20%, 100% 0);
+	}
+	50% {
+		clip-path: polygon(40% 0, 40% 100%, 40% 100%, 0 100%, 0 35%, 40% 100%, 40% 0, 100% 0, 30% 0, 75% 40%, 100% 20%, 100% 0);
+	}
+	/*20% {
+		clip-path: polygon(27% 84%, 44% 23%, 94% 8%, 93% 46%, 54% 10%, 75% 74%, 48% 82%, 79% 41%, 31% 40%, 4% 57%, 10% 25%);
+	}
+	45% {
+		clip-path: polygon(41% 84%, 31% 20%, 83% 8%, 74% 44%, 41% 6%, 81% 95%, 67% 81%, 79% 65%, 34% 47%, 17% 78%, 21% 32%);
+	}
+	70%  {
+		clip-path: polygon(38% 53%, 60% 19%, 86% 10%, 87% 26%, 63% 6%, 89% 77%, 54% 64%, 88% 47%, 28% 13%, 14% 55%, 10% 11%);
+	}*/
+	70% {
+
+	}
+	100%  {
+		clip-path: polygon(30% 0, 30% 100%, 30% 100%, 0 100%, 0 35%, 30% 100%, 30% 0, 100% 0, 50% 0, 75% 40%, 100% 20%, 100% 0);
+	}
+}
+
+@keyframes clip-2 {
+	0% {
+		clip-path: circle(15.9% at 75% 25%);
+	}
+	30% {
+		clip-path: circle(24.2% at 20% 37%);
+	}
+	55% {
+		clip-path: circle(30.4% at 43% 69%);
+	}
+	85%  {
+		clip-path: circle(18.2% at 70% 65%);
+	}
+	100%  {
+		clip-path: circle(15.9% at 75% 25%);
+	}
+}
+
+@keyframes scroll {
+	0% {
+		overflow-y: hidden;
+	}
+	100%  {
+		overflow-y: auto;
+	}
+}
+
+
+@keyframes main {
+	0% {
+		display: flex;
+		clip-path: circle(0% at 50% 50%);
+	}
+	80% {
+		clip-path: circle(100% at 50% 50%);
+	}
+	100% {
+		overflow-y: auto;
+		clip-path: none;
+	}
+}
+
+@keyframes glitch {
+	0% {
+
+	}
+	13% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+	}
+	14% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+	}
+	15% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+		filter: url('#noise-l');
+	}
+	16% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+		filter: none;
+	}
+	17% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	25% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	29% {
+		color: transparent;
+		transform: skew(0deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: url('#noise-l');
+	}
+	30% {
+		color: #fff;
+		transform: skew(20deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+		filter: none;
+	}
+	31% {
+		color: transparent;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	35% {
+		color: #fff;
+		transform: skew(-20deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: url('#noise-l');
+	}
+	39% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: none;
+	}
+	40% {
+		color: transparent;
+		transform: skew(0deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(70% 50%, -110% -30%, 80% 90%, 10% 100%);
+	}
+	41% {
+		color: #fff;
+		transform: skew(20deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(100% 20%, -20% -70%, 110% 90%, 10% 100%);
+	}
+	42% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(100% 100%, -100% -30%, 10% 50%, 10% 20%);
+		filter: url('#noise-l');
+	}
+	43% {
+		color: transparent;
+		transform: skew(20deg);   // HERE
+		clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+		filter: none;
+	}
+	45% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	59% {
+		transform: skew(20deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(100% 20%, -20% -70%, 110% 90%, 10% 100%);
+	}
+	61% {
+		clip-path: polygon(100% 20%, -20% -80%, 110% 90%, 50% 100%);
+	}
+	62% {
+		clip-path: polygon(100% 20%, -20% 20%, 20% 70%, 0% 100%);
+		filter: url('#noise-l');
+	}
+	63% {
+		color: transparent;
+		clip-path: polygon(100% 20%, -20% -70%, 110% 90%, 10% 100%);
+	}
+	65% {
+		color: #fff;
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: none;
+	}
+	70% {
+		transform: skew(-20deg);
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+	}
+	71% {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+	}
+	72% {
+		transform: skew(0deg);
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	73% {
+		color: transparent;
+		transform: skew(20deg);
+		clip-path: polygon(100% 20%, -20% -70%, 110% 90%, 10% 100%);
+		filter: url('#noise-l');
+	}
+	74% {
+		transform: skew(0deg);
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: none;
+	}
+	75% {
+		color: #fff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+	}
+	80% {
+		text-shadow: -0.5vw 0 0 #ff1212, 0.5vw 0 0 #12ffff;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		filter: url('#noise-l');
+	}
+	85% {
+		filter: none;
+	}
+	88% {
+		text-shadow: 0 0 0 #ff1212, 0 0 0 #12ffff;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+
+svg {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
